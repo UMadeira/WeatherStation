@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationApp", "WeatherStationApp\WeatherStationApp.csproj", "{A917F9D2-6210-46C8-9822-914C3962B086}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tutorials", "Tutorials", "{5F1BE4FD-D248-494D-87EA-13604F361D8D}"
+	ProjectSection(SolutionItems) = preProject
+		Tutorial\Tutorial - Blazor e MSAL.md = Tutorial\Tutorial - Blazor e MSAL.md
+		Tutorial\Tutorial - WebApi.md = Tutorial\Tutorial - WebApi.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{B30735F4-B6C3-43BA-804B-746216F8A445}"
 	ProjectSection(SolutionItems) = preProject
