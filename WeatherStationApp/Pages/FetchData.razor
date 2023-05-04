@@ -1,0 +1,13 @@
+﻿@page "/fetchdata"
+@using WeatherStationApp.Components
+
+<AuthorizeView>
+    <Authorized>
+        <WeatherForecastTable/>
+    </Authorized>
+    <NotAuthorized>
+        <PageTitle>Weather forecast - Error</PageTitle>
+        <p>You are not authorized to access this page. Please, <a href="authentication/login">login</a> first.</p>
+    </NotAuthorized>
+</AuthorizeView>
+
