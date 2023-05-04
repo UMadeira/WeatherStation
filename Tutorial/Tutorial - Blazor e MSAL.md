@@ -48,7 +48,7 @@ Para aceder ao portal da Azure (https://portal.azure.com) é necessário ter uma
 
 1. Obter o URL da aplicação web (no presente caso ``https://localhost:7016`` )
 
-   ![2.0 - Azure](https://raw.githubusercontent.com/UMadeira/WeatherStation/develop/tutorial/images/2.0-Azure.png)
+   ![2.0 - Azure](https://raw.githubusercontent.com/UMadeira/WeatherStation/develop/Tutorials/images/2.0-Azure.png)
 
 2. Aceder ao portal da Azure (https://portal.azure.com)
 
