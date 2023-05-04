@@ -5,9 +5,32 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherStationApp", "WeatherStationApp\WeatherStationApp.csproj", "{A917F9D2-6210-46C8-9822-914C3962B086}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F1BE4FD-D248-494D-87EA-13604F361D8D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tutorials", "Tutorials", "{5F1BE4FD-D248-494D-87EA-13604F361D8D}"
 	ProjectSection(SolutionItems) = preProject
 		Tutorial\Tutorial - Blazor e MSAL.md = Tutorial\Tutorial - Blazor e MSAL.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{B30735F4-B6C3-43BA-804B-746216F8A445}"
+	ProjectSection(SolutionItems) = preProject
+		Tutorial\images\1.0- CreateBlankSolution.png = Tutorial\images\1.0- CreateBlankSolution.png
+		Tutorial\images\1.2- CreateBlankSolution.png = Tutorial\images\1.2- CreateBlankSolution.png
+		Tutorial\images\1.3 Project.png = Tutorial\images\1.3 Project.png
+		Tutorial\images\1.4 Project.png = Tutorial\images\1.4 Project.png
+		Tutorial\images\1.5 Project.png = Tutorial\images\1.5 Project.png
+		Tutorial\images\1.6 Project.png = Tutorial\images\1.6 Project.png
+		Tutorial\images\2.0-Azure.png = Tutorial\images\2.0-Azure.png
+		Tutorial\images\2.1 - Azure.png = Tutorial\images\2.1 - Azure.png
+		Tutorial\images\2.2 - Azure.png = Tutorial\images\2.2 - Azure.png
+		Tutorial\images\2.3 - Azure.png = Tutorial\images\2.3 - Azure.png
+		Tutorial\images\2.4 - Azure.png = Tutorial\images\2.4 - Azure.png
+		Tutorial\images\2.5 - Azure.png = Tutorial\images\2.5 - Azure.png
+		Tutorial\images\2.5.1 - Azure.png = Tutorial\images\2.5.1 - Azure.png
+		Tutorial\images\2.6 - Azure.png = Tutorial\images\2.6 - Azure.png
+		Tutorial\images\2.7 - Azure.png = Tutorial\images\2.7 - Azure.png
+		Tutorial\images\4.0 - Configure.png = Tutorial\images\4.0 - Configure.png
+		Tutorial\images\4.1 - Configure.png = Tutorial\images\4.1 - Configure.png
+		Tutorial\images\4.2 - Configure.png = Tutorial\images\4.2 - Configure.png
+		Tutorial\images\4.3 - Configure.png = Tutorial\images\4.3 - Configure.png
 	EndProjectSection
 EndProject
 Global
@@ -35,6 +58,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B30735F4-B6C3-43BA-804B-746216F8A445} = {5F1BE4FD-D248-494D-87EA-13604F361D8D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA127481-4C68-42FA-9E69-39386B47BBAC}
