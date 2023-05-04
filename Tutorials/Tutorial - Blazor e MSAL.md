@@ -88,7 +88,7 @@ Para aceder ao portal da Azure (https://portal.azure.com) é necessário ter uma
 
     1. Editar o ficheiro ``appsettings.json`` e colocar os valores de ``"ClientId"`` e ajustar o valor de ``"Authority"``
 
-       ![4.0 - Configure](./images/4.0 - Configure.png)
+       ![4.0 - Configure](./images/4.0-Configure.png)
 
     2. No ficheiro ``Program.cs`` adicionar a seguinte configuração para permitir o acesso aos dados de perfil do utilizador ("https://graph.microsoft.com/User.Read")
 
@@ -119,15 +119,15 @@ Para aceder ao portal da Azure (https://portal.azure.com) é necessário ter uma
 
        a. Crie uma diretoria **Data** no projeto e mova o objeto **WeatherForecast** para essa diretoria.
 
-          ![4.1 - Configure](./images/4.1 - Configure.png)
+          ![4.1 - Configure](./images/4.1-Configure.png)
 
        b. Crie uma pasta **Components** e crie uma componente Blazor designada por ``WeatherForecastTable.razor``
 
-          ![4.2 - Configure](./images/4.2 - Configure.png)
+          ![4.2 - Configure](./images/4.2-Configure.png)
 
        c. Edite a página ``FetchData.razor``  de forma a proteger a view
 
-       ![4.3 - Configure](./images/4.3 - Configure.png)
+          ![4.3 - Configure](./images/4.3-Configure.png)
     
     4. Execute e teste
 
