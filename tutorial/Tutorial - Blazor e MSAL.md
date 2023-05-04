@@ -48,47 +48,47 @@ Para aceder ao portal da Azure (https://portal.azure.com) é necessário ter uma
 
 1. Obter o URL da aplicação web (no presente caso ``https://localhost:7016`` )
 
-   ![2.0 - Azure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\2.0 - Azure.png)
+   ![2.0 - Azure](.\images\2.0 - Azure.png)
 
 2. Aceder ao portal da Azure (https://portal.azure.com)
 
 3. Selecionar o serviço "App registrations"
 
-   ![2.1 - Azure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\2.1 - Azure.png)
+   ![2.1 - Azure](.\images\2.1 - Azure.png)
 
 4. Criar um novo registo
 
-   ![2.2 - Azure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\2.2 - Azure.png)
+   ![2.2 - Azure](.\images\2.2 - Azure.png)
 
 5. Preencher o registo com a seguinte informação (não esquecer de colocar ``/authentication/login-callback`` após o URL da aplicação)
 
-   ![2.3 - Azure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\2.3 - Azure.png)
+   ![2.3 - Azure](.\images\2.3 - Azure.png)
 
 6. Recolher os valores de **ClientId** (``eef826f7-58ce-4817-806d-55462a7a63f3``) e do **TenantId** (`f8cdef31-a31e-4b4a-93e4-5f571e91255a`). Navegar para a opção  **Integration assistant**.
 
-   ![2.4 - Azure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\2.4 - Azure.png)
+   ![2.4 - Azure](.\images\2.4 - Azure.png)
 
 7. Selecionar as opções **Single-page app** e **Web API** (posteriormente será utilizado este tipo de integração)
 
-   ![2.5.1 - Azure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\2.5.1 - Azure.png)
+   ![2.5.1 - Azure](.\images\2.5.1 - Azure.png)
 
 8. Selecionar **Evaluate my app registration**
 
-   ![2.5 - Azure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\2.5 - Azure.png)
+   ![2.5 - Azure](.\images\2.5 - Azure.png)
 
 9. Na página do **Integration Assistant**, na opção **Provide links to your app's terms of service and privacy statement** selecionar **Go to page**
 
-   ![2.6 - Azure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\2.6 - Azure.png)
+   ![2.6 - Azure](.\images\2.6 - Azure.png)
 
 10. Configurar com informação análoga à apresentada na seguinte figura e fazer **Save**
 
-    ![2.7 - Azure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\2.7 - Azure.png)
+    ![2.7 - Azure](.\images\2.7 - Azure.png)
 
     ### Configurar a aplicação com os  valores de registo
 
     1. Editar o ficheiro ``appsettings.json`` e colocar os valores de ``"ClientId"`` e ajustar o valor de ``"Authority"``
 
-       ![4.0 - Configure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\4.0 - Configure.png)
+       ![4.0 - Configure](.\images\4.0 - Configure.png)
 
     2. No ficheiro ``Program.cs`` adicionar a seguinte configuração para permitir o acesso aos dados de perfil do utilizador ("https://graph.microsoft.com/User.Read")
 
@@ -119,15 +119,15 @@ Para aceder ao portal da Azure (https://portal.azure.com) é necessário ter uma
 
        a. Crie uma diretoria **Data** no projeto e mova o objeto **WeatherForecast** para essa diretoria.
 
-          ![4.1 - Configure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\4.1 - Configure.png)
+          ![4.1 - Configure](.\images\4.1 - Configure.png)
 
        b. Crie uma pasta **Components** e crie uma componente Blazor designada por ``WeatherForecastTable.razor``
 
-          ![4.2 - Configure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\4.2 - Configure.png)
+          ![4.2 - Configure](.\images\4.2 - Configure.png)
 
        c. Edite a página ``FetchData.razor``  de forma a proteger a view
 
-       ![4.3 - Configure](C:\Users\leonel.nobrega\source\repos\UMadeira\WeatherStation\tutorial\images\4.3 - Configure.png)
+       ![4.3 - Configure](.\images\4.3 - Configure.png)
     
     4. Execute e teste
 
