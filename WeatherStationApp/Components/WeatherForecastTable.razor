@@ -47,10 +47,9 @@ else
     protected override async Task OnInitializedAsync()
     {
         var result = await TokenProvider.RequestAccessToken(
-            new AccessTokenRequestOptions
-                {
-                    Scopes = new[] { "api://a63c9715-a1ab-4e91-b486-ccf0015c5842/WeatherStation.Read" }
-                }
+            new AccessTokenRequestOptions {
+                Scopes = new[] { "api://a63c9715-a1ab-4e91-b486-ccf0015c5842/WeatherStation.Read" }
+            }
         );
 
         if (result.TryGetToken(out var token))
