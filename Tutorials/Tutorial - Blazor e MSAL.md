@@ -244,6 +244,6 @@ Para aceder ao portal da Azure (https://portal.azure.com) é necessário ter uma
    
    5. Requisitar e enviar o token de authenticação
    
-      <img src="./images/6.5-WebAPI.png" alt="6.5-WebAPI" style="zoom:40%;" />
+      <img src="./images/6.5-WebAPI.PNG" alt="6.5-WebAPI" style="zoom:40%;" />
    
    7. Executar e testar.
