@@ -13,6 +13,10 @@ builder.Services.AddMsalAuthentication( options =>
 {
     options.ProviderOptions.AdditionalScopesToConsent.Add(
         "https://graph.microsoft.com/User.Read" );
+
+    options.ProviderOptions.DefaultAccessTokenScopes.Add(
+        "api://a63c9715-a1ab-4e91-b486-ccf0015c5842/WeatherStation.Read");
+
     builder.Configuration.Bind("AzureAd", options.ProviderOptions.Authentication);
 });
 

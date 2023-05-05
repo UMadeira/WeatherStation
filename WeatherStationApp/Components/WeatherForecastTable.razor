@@ -1,5 +1,10 @@
-﻿@using WeatherStationApp.Data
+﻿@using Microsoft.AspNetCore.Components.Authorization;
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
+@using WeatherStationApp.Data
+
 @inject HttpClient Http
+@inject IAccessTokenProvider TokenProvider
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -41,6 +46,18 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        var result = await TokenProvider.RequestAccessToken(
+            new AccessTokenRequestOptions
+                {
+                    Scopes = new[] { "api://a63c9715-a1ab-4e91-b486-ccf0015c5842/WeatherStation.Read" }
+                }
+        );
+
+        if (result.TryGetToken(out var token))
+        {
+            Http.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
+            forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("https://localhost:7222/WeatherForecast");
+        }
     }
 }
