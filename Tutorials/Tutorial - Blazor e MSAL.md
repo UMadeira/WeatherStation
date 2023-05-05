@@ -8,7 +8,7 @@ Para a realização deste tutorial é necessário o seguinte:
 * Visual Studio 2022
 * Uma conta Microsoft com acesso ao portal Azure (https://portal.azure.com)
 
-### Autenticação de uma aplicação cliente usando o Blazor 
+### Autenticação de uma aplicação Cliente usando o Blazor 
 
 O Blazor pode ser utilizado para criar aplicações servidor (server side) ou aplicações cliente (client side). Neste tutorial, vamos começar por criar uma aplicação cliente.
 
@@ -86,12 +86,32 @@ Para aceder ao portal da Azure (https://portal.azure.com) é necessário ter uma
 
     ### Configurar a aplicação com os  valores de registo
 
-    1. Editar o ficheiro ``appsettings.json`` e colocar os valores de ``"ClientId"`` e ajustar o valor de ``"Authority"``
+    1. Editar o ficheiro ``appsettings.json`` e colocar os valores de ``"ClientId"`` e ajustar o valor de ``"Authority"``. O valor de ``"Authority"`` deverá ser uma das seguintes:
 
+       * Para contas "Personal Microsoft Accounts"
+
+       ```c#
+       "Authority": "https://login.microsoftonline.com/consumers"
+       ```
+    
+       * Para contas de uma organização 
+    
+       ```c#
+       "Authority": "https://login.microsoftonline.com/<tenant-id>"
+       ```
+
+       * Para contas organizacionais e pessoais
+    
+       ```c#
+       "Authority": "https://login.microsoftonline.com/common"
+       ```
+    
+       Escolhemos a terceira opção:
+    
        ![4.0 - Configure](./images/4.0-Configure.png)
-
+    
     2. No ficheiro ``Program.cs`` adicionar a seguinte configuração para permitir o acesso aos dados de perfil do utilizador ("https://graph.microsoft.com/User.Read")
-
+    
        ```c#
        using Microsoft.AspNetCore.Components.Web;
        using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -114,20 +134,116 @@ Para aceder ao portal da Azure (https://portal.azure.com) é necessário ter uma
        
        await builder.Build().RunAsync();
        ```
-
+    
     3. Realizar alguma "reengenharia" do código presente na página ``FetchData.razor``
-
+    
        a. Crie uma diretoria **Data** no projeto e mova o objeto **WeatherForecast** para essa diretoria.
-
+    
           ![4.1 - Configure](./images/4.1-Configure.png)
-
+    
+       
+    
        b. Crie uma pasta **Components** e crie uma componente Blazor designada por ``WeatherForecastTable.razor``
-
+    
           ![4.2 - Configure](./images/4.2-Configure.png)
-
+    
        c. Edite a página ``FetchData.razor``  de forma a proteger a view
-
+    
           ![4.3 - Configure](./images/4.3-Configure.png)
     
-    4. Execute e teste
+    4. Execute e teste.
 
+### Criação de uma API (Application Programming Interface) segura
+
+#### Criação de um projeto do tipo ASP.NET Core WebA API
+
+1. Crie o projeto
+
+   ```c#
+   dotnet new webapi -n WeatherStationApi -au SingleOrg
+   ```
+
+2. Adicione à solução
+
+   ```
+   dotnet sln .\WeatherStation.sln add .\WeatherStationApi\WeatherStationApi.csproj
+   ```
+
+3. Atualize o pacote ``Microsoft.Identity.Web``
+
+   ```
+   dotnet add WeatherStationApi package Microsoft.Identity.Web
+   ```
+
+4. Atualize o pacote
+
+   ```
+   dotnet add WeatherStationApi package Swashbuckle.AspNetCore
+   ```
+
+5. Verifique as versões dos pacotes
+
+   ``` 
+    dotnet list package
+   ```
+
+   ```c#
+   Project 'WeatherStationApp' has the following package references
+      [net7.0]:
+      Top-level Package                                            Requested   Resolved
+      > Microsoft.AspNetCore.Components.WebAssembly                7.0.5       7.0.5
+      > Microsoft.AspNetCore.Components.WebAssembly.DevServer      7.0.5       7.0.5
+      > Microsoft.Authentication.WebAssembly.Msal                  *           7.0.5
+   
+   Project 'WeatherStationApi' has the following package references
+      [net7.0]:
+      Top-level Package                                        Requested   Resolved
+      > Microsoft.AspNetCore.Authentication.JwtBearer          7.0.5       7.0.5
+      > Microsoft.AspNetCore.Authentication.OpenIdConnect      7.0.5       7.0.5
+      > Microsoft.AspNetCore.OpenApi                           7.0.5       7.0.5
+      > Microsoft.Identity.Web                                 2.9.0       2.9.0
+      > Swashbuckle.AspNetCore                                 6.4.0       6.4.0
+   
+   ```
+
+#### Complementar as definições no portal Azure (App registrations)
+
+1. Aceder à operação **Integration assistant **
+
+   <img src="./images/5.1-Azure.png" alt="5.1-Azure" style="zoom:40%;" />
+
+2. Configurar **Configure a unique Application ID URI.**
+
+   <img src="./images/5.2-Azure.png" alt="5.2-Azure" style="zoom:40%;" />
+
+3. Definir os valores de **Application ID**
+
+   <img src="./images/5.4-Azure.png" alt="5.4-Azure" style="zoom: 40%;" />
+
+4. Adicionar uma aplicação cliente (vamos utilizar o id da própria aplicação)
+
+   <img src="./images/5.5-Azure.png" alt="5.5-Azure" style="zoom:40%;" />
+
+   #### Atualizar o projeto
+
+   1. Alterar as configurações em app
+
+      <img src="./images/6.1-WebAPI.png" alt="6.1-WebAPI" style="zoom:40%;" />
+
+   2. Alterar o ficheiro ``Program.cs`` de forma a permitir o acesso de qualquer origem (Cors)
+
+      <img src="./images/6.2-WebAPI.png" alt="6.2-WebAPI" style="zoom:40%;" />
+
+   3. Adicionar o "scope" de acesso na aplicação ``WeatherStationApp``
+
+      <img src="./images/6.3-WebAPI.png" alt="6.4-WebAPI" style="zoom:40%;" />
+
+   4. Injetar os objetos ``TokenProvider`` e ``AuthenticationStateProvider``
+   
+      <img src="./images/6.4-WebAPI.png" alt="6.4-WebAPI" style="zoom:40%;" />
+   
+   5. Requisitar e enviar o token de authenticação
+   
+      <img src="./images/6.5-WebAPI.png" alt="6.5-WebAPI" style="zoom:40%;" />
+   
+   7. Executar e testar.
